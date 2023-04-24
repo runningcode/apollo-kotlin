@@ -45,7 +45,7 @@ dependencies {
   runtimeOnly(golatac.lib("kotlin.allopen"))
   runtimeOnly(golatac.lib("kotlinx.serialization.plugin"))
 
-  runtimeOnly(golatac.lib("sqldelight.plugin"))
+  //runtimeOnly(golatac.lib("sqldelight.plugin"))
   runtimeOnly(golatac.lib("gradle.publish.plugin"))
   runtimeOnly(golatac.lib("benmanes.versions"))
   runtimeOnly(golatac.lib("gr8"))
