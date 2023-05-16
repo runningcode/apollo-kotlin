@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinNativeCompile
+
 plugins {
   id("org.jetbrains.kotlin.multiplatform")
   id("apollo.library")
@@ -22,6 +24,15 @@ kotlin {
         // See https://youtrack.jetbrains.com/issue/KT-53471
         api(golatac.lib("kotlin.stdlib.js"))
       }
+    }
+  }
+}
+
+tasks.all {
+  if (name == "compileAppleMainKotlinMetadata") {
+    doLast {
+      this as KotlinNativeCompile
+      println(libraries.joinToString("") { it.absolutePath + "\n" })
     }
   }
 }
