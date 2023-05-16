@@ -17,7 +17,7 @@ actual fun currentTimeFormatted(): String {
 }
 
 actual fun currentThreadId(): String {
-  return pthread_self()?.rawValue.toString()
+  return TODO()
 }
 
 actual fun currentThreadName(): String {

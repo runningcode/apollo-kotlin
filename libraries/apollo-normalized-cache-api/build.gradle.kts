@@ -22,3 +22,11 @@ kotlin {
     }
   }
 }
+
+tasks.all {
+  if (name == "linkDebugTestIosSimulatorArm64") {
+    doLast {
+      println(inputs.properties.get("konanCacheKind"))
+    }
+  }
+}
