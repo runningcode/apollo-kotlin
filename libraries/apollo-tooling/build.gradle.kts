@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.kotlin.jvm")
   id("apollo.library")
@@ -75,4 +77,8 @@ tasks.configureEach {
   if (name == "checkApolloVersions") {
     enabled = false
   }
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
 }

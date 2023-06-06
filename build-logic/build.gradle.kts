@@ -61,6 +61,7 @@ tasks.withType<JavaCompile>().configureEach {
 }
 tasks.withType(KotlinJvmCompile::class.java).configureEach {
   kotlinOptions.jvmTarget = "11"
+  kotlinOptions.languageVersion = "1.9"
 }
 
 gradlePlugin {

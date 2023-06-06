@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.kotlin.multiplatform")
   id("apollo.library")
@@ -24,4 +26,8 @@ kotlin {
       }
     }
   }
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
 }

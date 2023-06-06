@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   antlr
   id("org.jetbrains.kotlin.jvm")
@@ -32,4 +34,8 @@ tasks.named("compileKotlin") {
 }
 tasks.named("compileTestKotlin") {
   dependsOn("generateTestGrammarSource")
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
 }

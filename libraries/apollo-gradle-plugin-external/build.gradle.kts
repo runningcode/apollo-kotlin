@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.kotlin.jvm")
   id("java-gradle-plugin")
@@ -36,4 +38,8 @@ gradlePlugin {
 
 gr8 {
   removeGradleApiFromApi()
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
 }

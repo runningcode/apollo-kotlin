@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.kotlin.jvm")
   id("java-gradle-plugin")
@@ -189,4 +191,8 @@ tasks.register("acceptAndroidLicenses") {
 
 tasks.named("testJava17").configure {
   dependsOn("acceptAndroidLicenses")
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
 }

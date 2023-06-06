@@ -66,6 +66,7 @@ tasks.withType(KotlinCompile::class.java) {
   // Fixes the warning below:
   // "Task ':apollo-android:apollo-compiler:kaptGenerateStubsKotlin' uses the output of task ':apollo-android:apollo-compiler:pluginVersion', without declaring an explicit dependency"
   dependsOn(pluginVersionTaskProvider)
+  kotlinOptions.languageVersion = "1.9"
 }
 
 // since test/graphql is not an input to Test tasks, they're not run with the changes made in there.
