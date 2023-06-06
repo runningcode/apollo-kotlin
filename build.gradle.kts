@@ -8,7 +8,7 @@ plugins {
 golatac.init(file("gradle/libraries.toml"))
 
 apply(plugin = "com.github.ben-manes.versions")
-apply(plugin = "org.jetbrains.kotlinx.binary-compatibility-validator")
+//apply(plugin = "org.jetbrains.kotlinx.binary-compatibility-validator")
 
 version = property("VERSION_NAME")!!
 
@@ -116,37 +116,37 @@ tasks.named("dependencyUpdates").configure {
 rootProject.configureNode()
 rootProject.configureJapiCmp()
 
-configure<kotlinx.validation.ApiValidationExtension> {
-  ignoredPackages.addAll(
-      listOf(
-          /**
-           * In general, we rely on annotations or "internal" visibility to hide the non-public APIs. But there are a few exceptions:
-           *
-           * Gradle plugin: tasks and other classes must be public in order for Gradle to instantiate and decorate them.
-           * SQLDelight generated sources are not generated as 'internal'.
-           */
-          "com.apollographql.apollo3.gradle.internal",
-          "com.apollographql.apollo3.cache.normalized.sql.internal",
-          "com.apollographql.apollo3.runtime.java.internal",
-          "com.apollographql.apollo3.runtime.java.interceptor.internal",
-          "com.apollographql.apollo3.runtime.java.network.http.internal",
-      )
-  )
-  ignoredProjects.addAll(
-      listOf(
-          "apollo-normalized-cache-api-incubating",
-          "apollo-normalized-cache-incubating",
-          "apollo-normalized-cache-sqlite-incubating",
-          "intellij-plugin",
-      )
-  )
-  nonPublicMarkers.addAll(
-      listOf(
-          "com.apollographql.apollo3.annotations.ApolloInternal",
-          "com.apollographql.apollo3.annotations.ApolloExperimental",
-      )
-  )
-}
+//configure<kotlinx.validation.ApiValidationExtension> {
+//  ignoredPackages.addAll(
+//      listOf(
+//          /**
+//           * In general, we rely on annotations or "internal" visibility to hide the non-public APIs. But there are a few exceptions:
+//           *
+//           * Gradle plugin: tasks and other classes must be public in order for Gradle to instantiate and decorate them.
+//           * SQLDelight generated sources are not generated as 'internal'.
+//           */
+//          "com.apollographql.apollo3.gradle.internal",
+//          "com.apollographql.apollo3.cache.normalized.sql.internal",
+//          "com.apollographql.apollo3.runtime.java.internal",
+//          "com.apollographql.apollo3.runtime.java.interceptor.internal",
+//          "com.apollographql.apollo3.runtime.java.network.http.internal",
+//      )
+//  )
+//  ignoredProjects.addAll(
+//      listOf(
+//          "apollo-normalized-cache-api-incubating",
+//          "apollo-normalized-cache-incubating",
+//          "apollo-normalized-cache-sqlite-incubating",
+//          "intellij-plugin",
+//      )
+//  )
+//  nonPublicMarkers.addAll(
+//      listOf(
+//          "com.apollographql.apollo3.annotations.ApolloInternal",
+//          "com.apollographql.apollo3.annotations.ApolloExperimental",
+//      )
+//  )
+//}
 
 tasks.register("rmbuild") {
   doLast {

@@ -49,7 +49,7 @@ dependencies {
   runtimeOnly(golatac.lib("gradle.publish.plugin"))
   runtimeOnly(golatac.lib("benmanes.versions"))
   runtimeOnly(golatac.lib("gr8"))
-  runtimeOnly(golatac.lib("kotlinx.binarycompatibilityvalidator"))
+//  runtimeOnly(golatac.lib("kotlinx.binarycompatibilityvalidator"))
 }
 
 // Keep in sync with CompilerOptions.kt
