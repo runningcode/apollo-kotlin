@@ -17,3 +17,11 @@ tasks.register("ciBuild") {
     checkGitStatus()
   }
 }
+
+// See https://youtrack.jetbrains.com/issue/KT-58957
+buildscript {
+  dependencies {
+    // Force latest metadata for Kotlin binary compatibility check
+    classpath("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.6.2")
+  }
+}
