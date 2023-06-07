@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
   id("org.jetbrains.kotlin.multiplatform")
   id("apollo.library")
@@ -71,4 +73,9 @@ tasks.register("iOSSimTest") {
       commandLine = listOf("xcrun", "simctl", "spawn", "iPhone 8", binary.absolutePath)
     }
   }
+}
+
+tasks.withType(KotlinCompile::class.java) {
+  kotlinOptions.languageVersion = "1.9"
+  kotlinOptions.freeCompilerArgs += "-Xskip-metadata-version-check"
 }
