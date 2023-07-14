@@ -29,5 +29,10 @@ kotlin {
         api(libs.kotlin.stdlib.js)
       }
     }
+    findByName("wasmMain")?.apply {
+      dependencies {
+        api(libs.kotlin.stdlib.wasm)
+      }
+    }
   }
 }

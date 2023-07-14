@@ -7,6 +7,7 @@ apolloLibrary {
   javaModuleName("com.apollographql.apollo3.adapter")
   mpp {
     withLinux.set(false)
+    withWasm.set(false)
   }
 }
 

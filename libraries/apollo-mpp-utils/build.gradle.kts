@@ -7,6 +7,7 @@ apolloLibrary {
   javaModuleName("com.apollographql.apollo3.mpp")
   mpp {
     withLinux.set(false)
+    withWasm.set(false)
   }
 }
 

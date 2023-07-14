@@ -1,6 +1,7 @@
 import org.gradle.api.Action
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.dsl.KotlinMultiplatformExtension
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.targets.js.ir.KotlinJsIrLink
 import org.jetbrains.kotlin.gradle.tasks.KotlinNativeLink
 
@@ -26,15 +27,16 @@ val hostTarget: String
     "macosX64"
   }
 
-val enabledAppleTargets = allAppleTargets
-val enabledLinux = true
-val enabledJs = true
+private val enabledAppleTargets = allAppleTargets
+private const val enabledLinux = true
+private const val enabledJs = true
 
-fun Project.configureMppDefaults(withJs: Boolean, withLinux: Boolean, withAndroid: Boolean) {
+fun Project.configureMppDefaults(withJs: Boolean, withLinux: Boolean, withWasm: Boolean, withAndroid: Boolean) {
   configureMpp(
       withJvm = true,
       withJs = withJs,
       withLinux = withLinux,
+      withWasm = withWasm,
       appleTargets = enabledAppleTargets,
       withAndroid = withAndroid,
   )
@@ -56,6 +58,7 @@ fun Project.configureMppTestsDefaults(
       withJs = withJs,
       browserTest = browserTest,
       withLinux = false,
+      withWasm = false,
       withAndroid = false,
       appleTargets = appleTargets,
   )
@@ -65,6 +68,7 @@ fun Project.configureMpp(
     withJvm: Boolean,
     withJs: Boolean,
     withLinux: Boolean,
+    withWasm: Boolean,
     withAndroid: Boolean,
     appleTargets: Collection<String>,
     browserTest: Boolean = false,
@@ -103,6 +107,13 @@ fun Project.configureMpp(
 
     if (enabledLinux && withLinux) {
       linuxX64("linux")
+    }
+
+    if (withWasm) {
+      @OptIn(ExperimentalWasmDsl::class)
+      wasm {
+        d8()
+      }
     }
 
     if (withAndroid) {

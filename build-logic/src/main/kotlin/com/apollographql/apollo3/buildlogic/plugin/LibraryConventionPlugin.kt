@@ -45,6 +45,7 @@ class LibraryConventionPlugin : Plugin<Project> {
       val withJs: Property<Boolean>
       val withLinux: Property<Boolean>
       val withAndroid: Property<Boolean>
+      val withWasm: Property<Boolean>
     }
 
     @get:Nested
@@ -55,6 +56,7 @@ class LibraryConventionPlugin : Plugin<Project> {
       project.configureMppDefaults(
           withJs = mppConfiguration.withJs.getOrElse(true),
           withLinux = mppConfiguration.withLinux.getOrElse(true),
+          withWasm = mppConfiguration.withWasm.getOrElse(true),
           withAndroid = mppConfiguration.withAndroid.getOrElse(false)
       )
     }

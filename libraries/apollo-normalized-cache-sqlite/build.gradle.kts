@@ -10,6 +10,7 @@ apolloLibrary {
   javaModuleName("com.apollographql.apollo3.cache.normalized.sql")
   mpp {
     withLinux.set(false)
+    withWasm.set(false)
     // https://github.com/cashapp/sqldelight/pull/1486
     withJs.set(false)
     withAndroid.set(true)
