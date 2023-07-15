@@ -3,10 +3,12 @@ listOf(pluginManagement.repositories, dependencyResolutionManagement.repositorie
     // Uncomment this one to use the Kotlin "dev" repository
     // maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/") }
     mavenCentral()
-    // For uuid 0.7.2
+    // For uuid wasm
     maven { url = uri("https://repo.repsy.io/mvn/mbonnin/default") }
-    // For okio
+    // For okio wasm
     maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") }
+    // For ktor wasm
+    maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
 
     exclusiveContent {
       // TODO comment when a stable version of Compose is available for Kotlin 1.9

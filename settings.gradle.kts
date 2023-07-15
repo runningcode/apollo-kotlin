@@ -29,6 +29,8 @@ dependencyResolutionManagement {
       from(files("gradle/libraries.toml"))
     }
   }
+  // Uncomment when https://github.com/JetBrains/gradle-intellij-plugin/issues/1312 is fixed
+  // repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
 }
 
 apply(from = "./gradle/repositories.gradle.kts")

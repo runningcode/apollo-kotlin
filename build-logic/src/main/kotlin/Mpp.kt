@@ -112,7 +112,7 @@ fun Project.configureMpp(
     if (withWasm) {
       @OptIn(ExperimentalWasmDsl::class)
       wasm {
-        d8()
+        nodejs()
       }
     }
 

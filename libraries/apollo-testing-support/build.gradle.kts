@@ -6,7 +6,6 @@ plugins {
 apolloLibrary {
   mpp {
     withLinux.set(false)
-    withWasm.set(false)
   }
 }
 

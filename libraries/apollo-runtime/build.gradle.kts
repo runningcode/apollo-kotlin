@@ -48,6 +48,12 @@ kotlin {
       }
     }
 
+    findByName("wasmMain")?.apply {
+      dependencies {
+        api(libs.ktor.client.js.wasm)
+      }
+    }
+
     findByName("appleMain")?.apply {
       dependencies {
       }

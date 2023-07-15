@@ -1,3 +1,4 @@
+import org.gradle.api.internal.artifacts.repositories.DefaultIvyArtifactRepository
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 import org.jetbrains.changelog.markdownToHTML
@@ -13,10 +14,17 @@ plugins {
 }
 
 // XXX: this should use the settings repositories instead
+// See https://github.com/JetBrains/gradle-intellij-plugin/issues/1312
 repositories {
   // Uncomment this one to use the Kotlin "dev" repository
   // maven { url = uri("https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev/") }
   mavenCentral()
+  // For uuid wasm
+  maven { url = uri("https://repo.repsy.io/mvn/mbonnin/default") }
+  // For okio wasm
+  maven { url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots/") }
+  // For ktor wasm
+  maven("https://maven.pkg.jetbrains.space/kotlin/p/wasm/experimental")
 }
 
 group = properties("pluginGroup")
