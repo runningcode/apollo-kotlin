@@ -16,7 +16,10 @@ fun Project.configureJavaAndKotlinCompilers() {
           "-opt-in=kotlin.RequiresOptIn",
       )
       apiVersion = "1.6"
-      languageVersion = "1.6"
+      languageVersion = "2.0"
+
+      // languageVersion 2.0 is experimental and produces a warning
+      freeCompilerArgs = freeCompilerArgs + "-Xsuppress-version-warnings"
 
       (this as? KotlinJvmOptions)?.let {
         freeCompilerArgs = freeCompilerArgs + "-Xjvm-default=all"
