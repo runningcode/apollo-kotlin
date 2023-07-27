@@ -10,12 +10,15 @@ public final class com/apollographql/apollo3/cache/normalized/sql/SqlNormalizedC
 }
 
 public final class com/apollographql/apollo3/cache/normalized/sql/SqlNormalizedCacheFactory : com/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory {
-	public fun <init> (Ljava/lang/String;)V
-	public synthetic fun <init> (Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-	public fun <init> (Ljava/lang/String;Ljava/lang/String;)V
-	public fun <init> (Ljava/lang/String;Ljava/util/Properties;)V
-	public synthetic fun <init> (Ljava/lang/String;Ljava/util/Properties;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public synthetic fun create ()Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCache;
 	public fun create ()Lcom/apollographql/apollo3/cache/normalized/sql/SqlNormalizedCache;
+}
+
+public final class com/apollographql/apollo3/cache/normalized/sql/SqlNormalizedCacheFactoryJvmKt {
+	public static final fun SqlNormalizedCacheFactory (Ljava/lang/String;)Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;
+	public static final fun SqlNormalizedCacheFactory (Ljava/lang/String;Ljava/lang/String;)Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;
+	public static final fun SqlNormalizedCacheFactory (Ljava/lang/String;Ljava/util/Properties;)Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;
+	public static synthetic fun SqlNormalizedCacheFactory$default (Ljava/lang/String;ILjava/lang/Object;)Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;
+	public static synthetic fun SqlNormalizedCacheFactory$default (Ljava/lang/String;Ljava/util/Properties;ILjava/lang/Object;)Lcom/apollographql/apollo3/cache/normalized/api/NormalizedCacheFactory;
 }
 

@@ -1,14 +1,14 @@
 package com.apollographql.apollo3.cache.normalized.sql.internal
 
 import app.cash.sqldelight.db.QueryResult
-import co.touchlab.sqliter.DatabaseConfiguration
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.db.SqlSchema
 import app.cash.sqldelight.driver.native.NativeSqliteDriver
 import app.cash.sqldelight.driver.native.wrapConnection
+import co.touchlab.sqliter.DatabaseConfiguration
 
 
-internal actual fun createDriver(name: String?, baseDir: String?, schema: SqlSchema<QueryResult.Value<Unit>>): SqlDriver {
+internal fun createDriver(name: String?, baseDir: String?, schema: SqlSchema<QueryResult.Value<Unit>>): SqlDriver {
   val databaseConfiguration = DatabaseConfiguration(
       name = name ?: "memoryDb",
       inMemory = name == null,

@@ -5,9 +5,8 @@ import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.db.SqlSchema
 import app.cash.sqldelight.driver.jdbc.sqlite.JdbcSqliteDriver
 import java.io.File
-import java.util.Properties
 
-private fun String?.toUrl(baseDir: String?): String {
+internal fun String?.toUrl(baseDir: String?): String {
   return if (this == null) {
     JdbcSqliteDriver.IN_MEMORY
   } else {
@@ -18,14 +17,6 @@ private fun String?.toUrl(baseDir: String?): String {
 }
 
 private const val versionPragma = "user_version"
-
-internal fun createDriver(name: String?, baseDir: String?, properties: Properties): SqlDriver {
-  return JdbcSqliteDriver(name.toUrl(baseDir), properties)
-}
-
-internal actual fun createDriver(name: String?, baseDir: String?, schema: SqlSchema<QueryResult.Value<Unit>>): SqlDriver {
-  return createDriver(name, baseDir, Properties())
-}
 
 internal actual fun maybeCreateOrMigrateSchema(driver: SqlDriver, schema: SqlSchema<QueryResult.Value<Unit>>) {
   val oldVersion = driver.executeQuery(

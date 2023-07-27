@@ -13,5 +13,7 @@ import com.apollographql.apollo3.cache.normalized.api.NormalizedCacheFactory
  * Default: "apollo.db"
  *
  */
-expect class SqlNormalizedCacheFactory(name: String? = "apollo.db") : NormalizedCacheFactory
+expect fun SqlNormalizedCacheFactory(name: String? = "apollo.db") : NormalizedCacheFactory
+
+
 
