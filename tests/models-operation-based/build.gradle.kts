@@ -62,9 +62,7 @@ fun com.apollographql.apollo3.gradle.api.Service.configureConnection(generateKot
   outputDirConnection {
     if (System.getProperty("idea.sync.active") == null) {
       if (generateKotlinModels) {
-        connectToKotlinSourceSet("jvmTest")
-        connectToKotlinSourceSet("appleTest")
-        connectToKotlinSourceSet("jsTest")
+        connectToKotlinSourceSet("commonTest")
       } else {
         // For java, the source set is always called 'main'
         connectToJavaSourceSet("main")

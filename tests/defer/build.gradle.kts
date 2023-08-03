@@ -77,9 +77,7 @@ fun com.apollographql.apollo3.gradle.api.Service.configureConnection(generateKot
   outputDirConnection {
     if (System.getProperty("idea.sync.active") == null) {
       if (generateKotlinModels) {
-        connectToKotlinSourceSet("jvmTest")
-        connectToKotlinSourceSet("jsTest")
-        connectToKotlinSourceSet("appleTest")
+        connectToKotlinSourceSet("commonTest")
       } else {
         connectToJavaSourceSet("main")
       }
