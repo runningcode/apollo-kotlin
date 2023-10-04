@@ -1,9 +1,12 @@
 import JapiCmp.configureJapiCmp
-import org.gradle.api.internal.tasks.testing.junit.result.TestClassResult
-import org.gradle.api.internal.tasks.testing.junit.result.TestResultSerializer
 
 plugins {
   id("apollo.library") apply false
+}
+
+val javaVersion: String = System.getProperty("java.version")
+if (javaVersion.substringBefore(".").toInt() < 17) {
+  throw GradleException("Java 11 or higher is required to build this project. You are using Java $javaVersion.")
 }
 
 apply(plugin = "com.github.ben-manes.versions")
@@ -41,7 +44,6 @@ tasks.register("ciPublishSnapshot") {
     }
   }
 }
-
 
 tasks.register("ciPublishRelease") {
   description = "Publishes all artifacts to OSSRH and the Gradle Plugin Portal"

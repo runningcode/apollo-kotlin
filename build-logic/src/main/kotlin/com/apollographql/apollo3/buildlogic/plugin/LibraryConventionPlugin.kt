@@ -5,7 +5,6 @@ import configureJavaAndKotlinCompilers
 import configureMppDefaults
 import configurePublishing
 import configureTesting
-import configureTests
 import optIn
 import org.gradle.api.Action
 import org.gradle.api.Plugin
@@ -67,10 +66,6 @@ class LibraryConventionPlugin : Plugin<Project> {
           attributes(mapOf("Automatic-Module-Name" to javaModuleName))
         }
       }
-    }
-
-    fun runTestsWithJavaVersion(javaVersion: Int) {
-      project.configureTests(javaVersion)
     }
   }
 }
